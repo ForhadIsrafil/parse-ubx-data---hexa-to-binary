@@ -34,7 +34,7 @@ with open("data.txt", 'r', encoding='utf8') as file:
                 print(f"{hex_data}:{str(binary_format1) + str(binary_format2)}")
 
                 with open("new_output.txt", 'a', encoding='utf8') as new:
-                    new.write(f"{main_hex}{hex_data}:{str(binary_format1) + str(binary_format2)}")
+                    new.write(f"{main_hex}{hex_data}:{str(binary_format1) + str(binary_format2)}\n")
 
         # hex_arr.append({"hex": hex_data, "binary": str(binary_format1) + str(binary_format2)})
 
