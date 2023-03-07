@@ -23,20 +23,21 @@ with open("data.txt", 'r', encoding='utf8') as file:
         if header == '':
             header = flat_hex[0:12]
 
-        print(main_hex.replace("\n", ""))
-
         if len(flat_hex) >= 49:
             # check header(first 12 hex data)
             if header == flat_hex[0:12]:
-                hex_data = flat_hex[26:28]
-                binary_format1 = "{0:04b}".format(int(str(hex_data[0]), 16))
-                binary_format2 = "{0:04b}".format(int(str(hex_data[1]), 16))
-                print(f"{hex_data}:{str(binary_format1) + str(binary_format2)}")
+                hex_14_data = flat_hex[26:28]
+                binary_format1 = "{0:04b}".format(int(str(hex_14_data[0]), 16))
+                binary_format2 = "{0:04b}".format(int(str(hex_14_data[1]), 16))
+                # print(f"{hex_data}:{str(binary_format1) + str(binary_format2)}")
 
-                with open("new_output.txt", 'a', encoding='utf8') as new:
-                    new.write(f"{main_hex}{hex_data}:{str(binary_format1) + str(binary_format2)}\n")
+                if "1" in f"{str(binary_format1) + str(binary_format2)}":
+                    print(f"{main_hex}{hex_14_data}:{str(binary_format1) + str(binary_format2)}")
 
-        # hex_arr.append({"hex": hex_data, "binary": str(binary_format1) + str(binary_format2)})
+                    # with open("new_output.txt", 'a', encoding='utf8') as new:
+                    #     new.write(f"{main_hex}{hex_14_data}:{str(binary_format1) + str(binary_format2)}\n")
+
+        # hex_arr.append({"hex": hex_14_data, "binary": str(binary_format1) + str(binary_format2)})
 
 # df = pd.DataFrame(hex_arr)
 # df.to_excel("hex_to_binary.xlsx", index=False)
