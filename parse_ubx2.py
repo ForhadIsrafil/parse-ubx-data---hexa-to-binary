@@ -1,6 +1,7 @@
 import pandas as pd
 import subprocess
 
+# Write the ubx file name below(the ubx file should be in same directory where this script existing.)
 file_name = "hq_gps_gal_16022023_1110.ubx"
 result = subprocess.run(
     f'gnssdump --filename {file_name} --protfilter 2 --msgfilter NAV-STATUS --format 4 --msgmode 0 --quitonerror 1',
